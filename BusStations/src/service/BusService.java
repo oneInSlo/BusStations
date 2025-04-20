@@ -76,8 +76,15 @@ public class BusService {
                     formatted.add(arrivalTime.getArrivalTime().toString());
                 } else if (timeFormat == TimeFormat.RELATIVE) {
                     // namesto LocalTime.of(12, 00) :: LocalTime.now()
-                    long minutes = java.time.Duration.between(LocalTime.of(12, 00), arrivalTime.getArrivalTime()).toMinutes();
-                    formatted.add(minutes + " min");
+                    long secondsTemp = java.time.Duration.between(LocalTime.of(12, 00), arrivalTime.getArrivalTime()).getSeconds();
+
+                    if (secondsTemp < 0) continue;
+
+                    long minutes = secondsTemp / 60;
+                    long seconds = secondsTemp % 60;
+
+                    String time = (minutes > 0 ? minutes + "min" : "") + (seconds > 0 ? " " + seconds + "s" : "");
+                    formatted.add(time);
                 }
             }
             System.out.println(String.join(", ", formatted));
