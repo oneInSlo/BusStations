@@ -26,8 +26,8 @@ public class TripService {
         return tripToRoute.get(tripId);
     }
 
-    public boolean containsTrip(String tripId) {
-        return tripToRoute.containsKey(tripId);
-    }
+//   public boolean containsTrip(String tripId) {
+//        return tripToRoute.containsKey(tripId);
+//    }
 
 }

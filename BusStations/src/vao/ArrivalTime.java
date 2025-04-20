@@ -16,6 +16,14 @@ public class ArrivalTime {
         this.tripId = tripId;
     }
 
+    public int getStopId() {
+        return stopId;
+    }
+
+    public void setStopId(int stopId) {
+        this.stopId = stopId;
+    }
+
     public LocalTime getArrivalTime() {
         return arrivalTime;
     }
